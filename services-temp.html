@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | Elevate Digital</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Specific Styles for Coming Soon Page */
+        /* Updated .coming-soon-section */
+        .coming-soon-section {
+            min-height: 100vh; /* Changed from 80vh to 100vh to fill screen */
+            padding-top: 120px; /* Added padding to push content below navbar */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .time-box {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 20px;
+            border-radius: 15px;
+            min-width: 100px;
+            backdrop-filter: blur(10px);
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .time-box:nth-child(2) { animation-delay: 1s; }
+        .time-box:nth-child(3) { animation-delay: 2s; }
+        .time-box:nth-child(4) { animation-delay: 3s; }
+
+        .time-value {
+            font-size: 2.5rem;
+            font-family: var(--font-heading);
+            color: var(--primary);
+            font-weight: 700;
+            display: block;
+        }
+
+        .time-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-secondary);
+        }
+
+        .notify-form {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .notify-input {
+            width: 100%;
+            padding: 20px 160px 20px 30px; /* Space for button */
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: white;
+            font-family: var(--font-body);
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .notify-input:focus {
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(108, 99, 255, 0.2);
+        }
+
+        .notify-btn {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            padding: 15px 30px;
+            border-radius: 40px;
+            background: var(--gradient);
+            border: none;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .notify-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .time-box { min-width: 70px; padding: 15px; }
+            .time-value { font-size: 1.8rem; }
+            .notify-input { padding: 20px; text-align: center; margin-bottom: 15px; }
+            .notify-btn { position: relative; width: 100%; right: auto; top: auto; }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">ELEVATE</span>
+                <span class="logo-dot"></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link active">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="contact.html" class="btn btn-primary magnetic">
+                    <span>Let's Talk</span>
+                </a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="coming-soon-section">
+        <div class="hero-bg">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+        </div>
+
+        <div class="container">
+            <div class="reveal-up">
+                <span class="section-tag"><i class="fas fa-rocket"></i> Launching Soon</span>
+                <h1 class="hero-title" style="font-size: 3.5rem; margin-top: 10px;">
+                    We Are Crafting <br>
+                    <span class="text-gradient">Something Extraordinary</span>
+                </h1>
+                <p class="hero-subtitle" style="margin-top: 20px;">
+                    We are updating our service packages to better serve the Indian market. 
+                    Get ready for data-driven strategies that scale.
+                </p>
+            </div>
+
+            <div class="countdown-container reveal-up delay-1">
+                <div class="time-box">
+                    <span class="time-value" id="days">00</span>
+                    <span class="time-label">Days</span>
+                </div>
+                <div class="time-box">
+                    <span class="time-value" id="hours">00</span>
+                    <span class="time-label">Hours</span>
+                </div>
+                <div class="time-box">
+                    <span class="time-value" id="minutes">00</span>
+                    <span class="time-label">Minutes</span>
+                </div>
+                <div class="time-box">
+                    <span class="time-value" id="seconds">00</span>
+                    <span class="time-label">Seconds</span>
+                </div>
+            </div>
+
+            <div class="reveal-up delay-2">
+                <p style="color: var(--text-secondary); margin-bottom: 20px;">Be the first to know when we launch:</p>
+                <form class="notify-form" onsubmit="event.preventDefault(); alert('Thank you! You will be notified.');">
+                    <input type="email" class="notify-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="notify-btn magnetic">Notify Me</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" style="margin-top: 0; padding-top: 20px;">
+        <div class="container">
+            <div class="footer-bottom" style="border: none;">
+                <p>&copy; 2025 Elevate Digital. All rights reserved.</p>
+                <div class="social-links" style="margin-top: 0;">
+                    <a href="#" class="social-link magnetic"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link magnetic"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Set the date we're counting down to (10 days from now)
+        const countDownDate = new Date();
+        countDownDate.setDate(countDownDate.getDate() + 20); 
+
+        // Update the count down every 1 second
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.querySelector(".countdown-container").innerHTML = "<h3>WE ARE LIVE!</h3>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
